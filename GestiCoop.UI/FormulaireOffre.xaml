@@ -1,0 +1,96 @@
+﻿<Window x:Class="GestiCoop.UI.FormulaireOffre"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Formulaire d'offre de stage — GestiCoop"
+        Height="480" Width="620"
+        FontFamily="Segoe UI" FontSize="13"
+        WindowStartupLocation="CenterOwner">
+    <Grid Margin="16">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <!-- Col 0 : label -->
+            <ColumnDefinition Width="*"/>
+            <!-- Col 1 : champ -->
+            <ColumnDefinition Width="Auto"/>
+            <!-- Col 2 : label -->
+            <ColumnDefinition Width="*"/>
+            <!-- Col 3 : champ -->
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- 0 : Titre -->
+            <RowDefinition Height="Auto"/>
+            <!-- 1 : Secteur + Duree -->
+            <RowDefinition Height="Auto"/>
+            <!-- 2 : Date + Remuneration -->
+            <RowDefinition Height="Auto"/>
+            <!-- 3 : Statut -->
+            <RowDefinition Height="*"/>
+            <!-- 4 : Description -->
+            <RowDefinition Height="Auto"/>
+            <!-- 5 : Boutons -->
+        </Grid.RowDefinitions>
+
+        <!-- Ligne 0 : Titre sur 3 colonnes -->
+        <Label Grid.Row="0" Grid.Column="0" Content="Titre du poste :"/>
+        <TextBox Grid.Row="0" Grid.Column="1" Grid.ColumnSpan="3"
+                 x:Name="txtTitre" MaxLength="100" Margin="4,3"
+                 ToolTip="Titre du poste (requis)"
+                 TextChanged="txtTitre_TextChanged"/>
+
+        <!-- Ligne 1 : Secteur + Duree -->
+        <Label Grid.Row="1" Grid.Column="0" Content="Secteur :"/>
+        <ComboBox Grid.Row="1" Grid.Column="1"
+                  x:Name="cboSecteur" Margin="4,3"
+                  SelectionChanged="cboSecteur_SelectionChanged"/>
+        <Label Grid.Row="1" Grid.Column="2" Content="Durée (sem.) :"/>
+        <StackPanel Grid.Row="1" Grid.Column="3"
+                    Orientation="Horizontal" Margin="4,3">
+            <Slider x:Name="slDuree" Minimum="1" Maximum="52" Value="12"
+                    Width="120" IsSnapToTickEnabled="True"
+                    ValueChanged="slDuree_ValueChanged"/>
+            <TextBlock x:Name="lblDuree" Text="12"
+                       Margin="6,0,0,0" FontWeight="Bold"
+                       VerticalAlignment="Center"/>
+        </StackPanel>
+
+        <!-- Ligne 2 : Date + Remuneration -->
+        <Label Grid.Row="2" Grid.Column="0" Content="Date limite :"/>
+        <DatePicker Grid.Row="2" Grid.Column="1"
+                    x:Name="dpLimite" Margin="4,3"/>
+        <Label Grid.Row="2" Grid.Column="2" Content="Rémunération ($) :"/>
+        <TextBox Grid.Row="2" Grid.Column="3"
+                 x:Name="txtRemuneration" Margin="4,3" MaxLength="8"/>
+
+        <!-- Ligne 3 : Statut -->
+        <Label Grid.Row="3" Grid.Column="0" Content="Statut :"/>
+        <StackPanel Grid.Row="3" Grid.Column="1" Grid.ColumnSpan="3"
+                    Orientation="Horizontal" Margin="4,3">
+            <RadioButton x:Name="rbOuvert" Content="Ouvert" IsChecked="True"
+                         GroupName="Statut" Margin="0,0,12,0"/>
+            <RadioButton x:Name="rbFerme" Content="Fermé" GroupName="Statut"/>
+        </StackPanel>
+
+        <!-- Ligne 4 : Description multi-ligne -->
+        <Label Grid.Row="4" Grid.Column="0" Content="Description :"
+               VerticalAlignment="Top" Margin="0,6,0,0"/>
+        <TextBox Grid.Row="4" Grid.Column="1" Grid.ColumnSpan="3"
+                 x:Name="txtDescription" Margin="4,3"
+                 TextWrapping="Wrap" AcceptsReturn="True"
+                 VerticalScrollBarVisibility="Auto"/>
+
+        <!-- Ligne 5 : Boutons -->
+        <StackPanel Grid.Row="5" Grid.ColumnSpan="4"
+                    Orientation="Horizontal" HorizontalAlignment="Right"
+                    Margin="0,8,0,0">
+            <Button x:Name="btnEnregistrer" Content="Enregistrer"
+                    IsDefault="True" IsEnabled="False" Margin="0,0,8,0"
+                    Style="{StaticResource BoutonPrimaire}"
+                    Click="btnEnregistrer_Click"/>
+            <Button x:Name="btnAnnuler" Content="Annuler"
+                   
+                    Style="{StaticResource BoutonDanger}"
+                    Click="btnAnnuler_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>

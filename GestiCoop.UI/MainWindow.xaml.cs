@@ -1,23 +1,30 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
 
 namespace GestiCoop.UI;
 
-/// <summary>
-/// Interaction logic for MainWindow.xaml
-/// </summary>
 public partial class MainWindow : Window
 {
     public MainWindow()
     {
         InitializeComponent();
+    }
+
+    private void btnNouvelleOffre_Click(object sender, RoutedEventArgs e)
+    {
+        var formulaire = new FormulaireOffre();
+        formulaire.Owner = this;
+
+        if (formulaire.ShowDialog() == true && formulaire.ResultatOffre != null)
+        {
+            OffreStage offre = formulaire.ResultatOffre;
+            lblStatut.Text =
+                $"Offre enregistrée : {offre.Titre} — {offre.Secteur}, " +
+                $"{offre.DureeSemaines} sem., {offre.Remuneration:C}, " +
+                $"limite {offre.DateLimite:yyyy-MM-dd}, {offre.Statut}";
+        }
+        else
+        {
+            lblStatut.Text = "Saisie annulée.";
+        }
     }
 }

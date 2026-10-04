@@ -24,6 +24,9 @@
             <Button Content="Offres de stage" Margin="8" Padding="12,6"/>
             <Button Content="Étudiants"       Margin="8" Padding="12,6"/>
             <Button Content="Entreprises"     Margin="8" Padding="12,6"/>
+            <Button x:Name="btnNouvelleOffre" Content="+ Nouvelle offre"
+                    Margin="8" Style="{StaticResource BoutonPrimaire}"
+                    Click="btnNouvelleOffre_Click"/>
         </StackPanel>
 
         <!-- Rangée 2 : Zone de contenu -->
@@ -33,7 +36,7 @@
 
         <!-- Rangée 3 : Barre d'état -->
         <StatusBar Grid.Row="3">
-            <TextBlock Text="Prêt"/>
+            <TextBlock x:Name="lblStatut" Text="Prêt"/>
         </StatusBar>
     </Grid>
 </Window>
