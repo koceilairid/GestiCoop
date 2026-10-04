@@ -1,12 +1,39 @@
 ﻿<Window x:Class="GestiCoop.UI.MainWindow"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:GestiCoop.UI"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="GestiCoop — Bienvenue" Width="900" Height="600">
     <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <!-- Rangée 0 : En-tête -->
+            <RowDefinition Height="Auto"/>
+            <!-- Rangée 1 : Navigation -->
+            <RowDefinition Height="*"/>
+            <!-- Rangée 2 : Contenu -->
+            <RowDefinition Height="Auto"/>
+            <!-- Rangée 3 : Barre d'état -->
+        </Grid.RowDefinitions>
 
+        <!-- Rangée 0 : En-tête -->
+        <StackPanel Grid.Row="0" Background="#1F4E79" Orientation="Horizontal">
+            <TextBlock Text="GestiCoop" Foreground="White" FontSize="22" Margin="12"/>
+        </StackPanel>
+
+        <!-- Rangée 1 : Navigation (3 boutons fictifs) -->
+        <StackPanel Grid.Row="1" Orientation="Horizontal" Background="#DCE6F1">
+            <Button Content="Offres de stage" Margin="8" Padding="12,6"/>
+            <Button Content="Étudiants"       Margin="8" Padding="12,6"/>
+            <Button Content="Entreprises"     Margin="8" Padding="12,6"/>
+        </StackPanel>
+
+        <!-- Rangée 2 : Zone de contenu -->
+        <TextBlock Grid.Row="2" Text="Bienvenue dans GestiCoop"
+                   FontSize="28"
+                   HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
+        <!-- Rangée 3 : Barre d'état -->
+        <StatusBar Grid.Row="3">
+            <TextBlock Text="Prêt"/>
+        </StatusBar>
     </Grid>
 </Window>
