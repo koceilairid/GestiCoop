@@ -1,4 +1,5 @@
-﻿namespace GestiCoop.UI;
+﻿/// Evaluation UA1 partie 1 
+namespace GestiCoop.UI;
 
 public class Etudiant
 {
