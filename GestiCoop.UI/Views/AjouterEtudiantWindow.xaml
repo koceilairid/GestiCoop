@@ -1,0 +1,48 @@
+﻿<Window x:Class="GestiCoop.UI.Views.AjouterEtudiantWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Ajouter un étudiant — GestiCoop"
+        Height="340" Width="460"
+        FontFamily="Segoe UI" FontSize="13"
+        WindowStartupLocation="CenterOwner" ResizeMode="NoResize">
+    <Grid Margin="20">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.ColumnSpan="2" Text="Nouvel étudiant"
+                   FontSize="18" FontWeight="Bold" Margin="0,0,0,12"/>
+
+        <Label Grid.Row="1" Grid.Column="0" Content="Nom :"/>
+        <TextBox Grid.Row="1" Grid.Column="1" x:Name="txtNom" Margin="4,3" MaxLength="50"/>
+
+        <Label Grid.Row="2" Grid.Column="0" Content="Prénom :"/>
+        <TextBox Grid.Row="2" Grid.Column="1" x:Name="txtPrenom" Margin="4,3" MaxLength="50"/>
+
+        <Label Grid.Row="3" Grid.Column="0" Content="Programme :"/>
+        <ComboBox Grid.Row="3" Grid.Column="1" x:Name="cboProgramme" Margin="4,3"/>
+
+        <Label Grid.Row="4" Grid.Column="0" Content="Courriel :"/>
+        <TextBox Grid.Row="4" Grid.Column="1" x:Name="txtCourriel" Margin="4,3" MaxLength="100"/>
+
+        <StackPanel Grid.Row="6" Grid.ColumnSpan="2" Orientation="Horizontal"
+                    HorizontalAlignment="Right" Margin="0,12,0,0">
+            <Button Content="Enregistrer" IsDefault="True" Margin="0,0,8,0"
+                    Style="{StaticResource BoutonPrimaire}"
+                    Click="btnEnregistrer_Click"/>
+            <Button Content="Annuler"
+                    Style="{StaticResource BoutonDanger}"
+                    Click="btnAnnuler_Click"/>
+        </StackPanel>
+    </Grid>
+</Window>
