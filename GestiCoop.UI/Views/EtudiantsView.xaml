@@ -24,8 +24,8 @@
                     <TextBlock Text="PRINCIPAL" Foreground="#B8C7DC" FontSize="10" Margin="0,20,0,0"/>
                 </StackPanel>
                 <StackPanel DockPanel.Dock="Bottom" Margin="16">
-                    <TextBlock Text="K. Aladji" Foreground="White" FontWeight="Bold"/>
-                    <TextBlock Text="Coordinateur" Foreground="#B8C7DC" FontSize="11"/>
+                    <TextBlock Text="koceila.IRID" Foreground="White" FontWeight="Bold"/>
+                    <TextBlock Text="Etudiant" Foreground="#B8C7DC" FontSize="11"/>
                 </StackPanel>
                 <ListBox Background="Transparent" BorderThickness="0"
                          Foreground="White" SelectedIndex="2">

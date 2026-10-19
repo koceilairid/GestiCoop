@@ -1,4 +1,5 @@
 ﻿using System.Collections.ObjectModel;
+using System.Windows;
 using System.Windows.Input;
 
 namespace GestiCoop.UI;
@@ -74,12 +75,20 @@ public class EtudiantsViewModel : ViewModelBase
 
     private void Ajouter()
     {
-        // Étape 5 : ouvrira AjouterEtudiantWindow avec ShowDialog()
+        var fenetre = new Views.AjouterEtudiantWindow();
+        fenetre.Owner = Application.Current.MainWindow;
+
+        if (fenetre.ShowDialog() == true && fenetre.Resultat != null)
+        {
+            _tous.Add(fenetre.Resultat);
+            AppliquerFiltre();
+            OnPropertyChanged(nameof(NombreTotal));
+        }
     }
 
     private void Modifier(Etudiant? e)
     {
-        // Étape 5 aussi (selon l'écran 4)
+        // Non demandé dans l'énoncé pour l'instant
     }
 
     private void Supprimer(Etudiant? e)
