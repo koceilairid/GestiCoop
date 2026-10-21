@@ -75,12 +75,14 @@ public class EtudiantsViewModel : ViewModelBase
 
     private void Ajouter()
     {
+        var vm = new AjouterEtudiantVM();
         var fenetre = new Views.AjouterEtudiantWindow();
+        fenetre.DataContext = vm;
         fenetre.Owner = Application.Current.MainWindow;
 
-        if (fenetre.ShowDialog() == true && fenetre.Resultat != null)
+        if (fenetre.ShowDialog() == true && vm.Resultat != null)
         {
-            _tous.Add(fenetre.Resultat);
+            _tous.Add(vm.Resultat);
             AppliquerFiltre();
             OnPropertyChanged(nameof(NombreTotal));
         }

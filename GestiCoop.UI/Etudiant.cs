@@ -1,4 +1,4 @@
-﻿/// Evaluation UA1 partie 1 
+﻿// Evaluation UA1 partie 1
 namespace GestiCoop.UI;
 
 public class Etudiant
@@ -7,4 +7,5 @@ public class Etudiant
     public string Prenom { get; set; } = string.Empty;
     public string Programme { get; set; } = string.Empty;
     public string Courriel { get; set; } = string.Empty;
+    public string Numero { get; set; } = string.Empty;
 }
