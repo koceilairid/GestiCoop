@@ -1,0 +1,97 @@
+﻿<Window x:Class="GestiCoop.UI.Views.Login"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:GestiCoop.UI.Views"
+        mc:Ignorable="d"
+        Title="Login" Height="450" Width="800">
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*" />
+            <ColumnDefinition Width="380" />
+        </Grid.ColumnDefinitions>
+
+        <!-- Colonne 0 : panneau bleu (marque) -->
+        <Border Grid.Column="0"
+                Background="Blue"
+                CornerRadius="0">
+            <StackPanel VerticalAlignment="Center"
+                        HorizontalAlignment="Center">
+                <TextBlock Text="GestiCoop"
+                           FontSize="38"
+                           FontWeight="Bold"
+                           Foreground="White"
+                           HorizontalAlignment="Center" />
+
+                <TextBlock Text="Gestion de stage Coopérative"
+                           FontSize="15"
+                           FontWeight="Bold"
+                           Foreground="#AACCEE"
+                           HorizontalAlignment="Center"
+                           Margin="0,20,0,40"/>
+
+                <StackPanel Orientation="Horizontal"
+                            HorizontalAlignment="Center"
+                            Margin="0,50,0,0">
+                    <StackPanel Margin="0,0,30,0">
+                        <TextBlock Text="248"
+                                   FontSize="28"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="Etudiant.e.s"
+                                   Foreground="#AACCEE"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel Margin="0,0,30,0">
+                        <TextBlock Text="87"
+                                   FontSize="28"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="Offres"
+                                   Foreground="#AACCEE"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                    <StackPanel>
+                        <TextBlock Text="34"
+                                   FontSize="28"
+                                   Foreground="White"
+                                   HorizontalAlignment="Center" />
+                        <TextBlock Text="Entreprises"
+                                   Foreground="#AACCEE"
+                                   HorizontalAlignment="Center" />
+                    </StackPanel>
+                </StackPanel>
+            </StackPanel>
+        </Border>
+
+        <!-- Colonne 1 : formulaire de connexion -->
+        <StackPanel Grid.Column="1"
+                    VerticalAlignment="Center"
+                    Margin="30,0">
+            <TextBlock Text="Connexion"
+                       FontSize="24"
+                       FontWeight="Bold"
+                       HorizontalAlignment="Center"
+                       Margin="0,0,0,15" />
+
+            <StackPanel Orientation="Horizontal" Margin="0,0,0,15">
+                <RadioButton Content="Etudiant" GroupName="Role"
+                             IsChecked="True" Margin="0,0,15,0" />
+                <RadioButton Content="Entreprise" GroupName="Role"
+                             Margin="0,0,15,0" />
+                <RadioButton Content="Coordonateur" GroupName="Role" />
+            </StackPanel>
+
+            <TextBlock Text="Matricule" FontWeight="Bold" Margin="0,0,0,5" />
+            <TextBox Margin="0,0,0,15" />
+
+            <TextBlock Text="Mot de passe" FontWeight="Bold" Margin="0,0,0,5" />
+            <PasswordBox Margin="0,0,0,20" />
+
+            <Button Content="Se Connecter" IsDefault="True" Margin="0,0,0,10"
+        Click="SeConnecter_Click" />
+            <Button Content="Connexion SSO La Cite" />
+        </StackPanel>
+    </Grid>
+</Window>

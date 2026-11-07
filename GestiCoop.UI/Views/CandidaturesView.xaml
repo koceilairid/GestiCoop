@@ -1,0 +1,54 @@
+﻿<Window x:Class="GestiCoop.UI.Views.CandidaturesView"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="GestiCoop — Candidatures"
+        Width="900" Height="550"
+        FontFamily="Segoe UI" FontSize="13"
+        WindowStartupLocation="CenterOwner">
+    <DockPanel Background="#F3F6FA">
+
+        <!-- En-tête : titre + boutons -->
+        <Border DockPanel.Dock="Top" Background="White"
+                BorderBrush="#E5E7EB" BorderThickness="0,0,0,1" Padding="20,12">
+            <Grid>
+                <TextBlock Text="Candidatures" FontSize="20" FontWeight="Bold"
+                           Foreground="#1F4E79" VerticalAlignment="Center"/>
+                <StackPanel Orientation="Horizontal" HorizontalAlignment="Right">
+                    <Button Content="➕ Ajouter" Margin="0,0,8,0"
+                            Style="{StaticResource BoutonPrimaire}"
+                            Command="{Binding AjouterCommand}"/>
+                    <Button Content="Supprimer"
+                            Style="{StaticResource BoutonDanger}"
+                            Command="{Binding SupprimerCommand}"/>
+                </StackPanel>
+            </Grid>
+        </Border>
+
+        <!-- Compteur en bas -->
+        <TextBlock DockPanel.Dock="Bottom" Margin="20,0,20,12" Foreground="#1F4E79"
+                   Text="{Binding Candidatures.Count, StringFormat={}{0} candidature(s)}"/>
+
+        <!-- Carte blanche avec la liste -->
+        <Border Background="White" BorderBrush="#E5E7EB" BorderThickness="1"
+                CornerRadius="8" Margin="16">
+            <ListView ItemsSource="{Binding Candidatures}"
+                      SelectedItem="{Binding CandidatureSelectionnee, Mode=TwoWay}"
+                      BorderThickness="0">
+                <ListView.View>
+                    <GridView>
+                        <GridViewColumn Header="Prénom" Width="120"
+                                        DisplayMemberBinding="{Binding Etudiant.Prenom}"/>
+                        <GridViewColumn Header="Nom" Width="120"
+                                        DisplayMemberBinding="{Binding Etudiant.Nom}"/>
+                        <GridViewColumn Header="Offre" Width="200"
+                                        DisplayMemberBinding="{Binding Offre.Titre}"/>
+                        <GridViewColumn Header="Date" Width="120"
+                                        DisplayMemberBinding="{Binding DateCandidature, StringFormat=yyyy-MM-dd}"/>
+                        <GridViewColumn Header="Statut" Width="120"
+                                        DisplayMemberBinding="{Binding Statut}"/>
+                    </GridView>
+                </ListView.View>
+            </ListView>
+        </Border>
+    </DockPanel>
+</Window>

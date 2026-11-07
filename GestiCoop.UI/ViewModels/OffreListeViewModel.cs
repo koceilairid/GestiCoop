@@ -36,9 +36,15 @@ public class OffreListeViewModel : ViewModelBase
 
     private void Ajouter()
     {
-        var nouvelle = new OffreStage { Titre = "Nouvelle offre", Secteur = "À préciser" };
-        Offres.Add(nouvelle);
-        OffreSelectionnee = nouvelle;
+        var vm = new AjouterOffreVM();
+        var fenetre = new FormulaireOffre();
+        fenetre.DataContext = vm;
+
+        if (fenetre.ShowDialog() == true && vm.Resultat != null)
+        {
+            Offres.Add(vm.Resultat);
+            OffreSelectionnee = vm.Resultat;
+        }
     }
 
     private void Supprimer()
